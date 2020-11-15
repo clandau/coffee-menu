@@ -18,23 +18,20 @@
 </template>
 
 <script>
+import { db } from '@/firebase/init'
 export default {
   data() {
     return {
-      coffees: [
-        {
-          name: "Mocha",
-          slug: "mocha",
-          ingredients: ["chocolate", "espresso", "milk"],
-        },
-    {
-      name: "Espresso",
-      slug: "espresso",
-      ingredients: ["espresso"],
-    }
-      ],
+      coffees: [],
     };
   },
+
+  async created() {
+    const snapshot = await db.collection("coffees").get();
+    snapshot.forEach(doc => {
+      this.coffees.push(doc.data());
+    });
+  }
 };
 </script>
 
