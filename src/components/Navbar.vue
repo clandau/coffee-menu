@@ -3,7 +3,7 @@
     <nav>
       <v-app-bar app color="secondary">
         <v-toolbar-title
-          ><router-link to="/" class="lightest--text text-h3">Hey, Coffee!</router-link
+          ><router-link to="/" class="lightest--text text-h3">Coffee Menu</router-link
         ></v-toolbar-title>
         <v-btn
           fab
