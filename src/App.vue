@@ -4,9 +4,9 @@
     :style="{ background: $vuetify.theme.themes.light.lightest }"
   >
     <Navbar />
-    <v-content>
+    <v-main>
     <router-view />
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
