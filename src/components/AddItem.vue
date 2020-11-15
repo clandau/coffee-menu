@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container>
+    <v-container max-width="600px">
       <v-card>
         <v-card-title>Add Coffee Drink</v-card-title>
         <v-card-text>
@@ -21,7 +21,9 @@
             ></v-text-field>
           </v-form>
         </v-card-text>
-        <v-card-actions></v-card-actions>
+        <v-card-actions>
+          <v-btn color="accent" @click="saveCoffee">Save Coffee</v-btn>
+        </v-card-actions>
       </v-card>
     </v-container>
   </div>
@@ -40,6 +42,9 @@ export default {
   },
 
   methods: {
+    saveCoffee() {
+      console.log("Save!")
+    },
     addIngredient() {
       if (this.addOneMore) {
         this.ingredients.push(this.addOneMore);
