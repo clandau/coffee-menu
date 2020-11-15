@@ -24,10 +24,12 @@ export default {
       coffees: [
         {
           name: "Mocha",
+          slug: "mocha",
           ingredients: ["chocolate", "espresso", "milk"],
         },
     {
       name: "Espresso",
+      slug: "espresso",
       ingredients: ["espresso"],
     }
       ],
