@@ -39,7 +39,6 @@ export default {
   data() {
     return {
       name: "",
-      slug: null,
       ingredients: [],
       addOneMore: null,
       feedback: null,
@@ -47,11 +46,17 @@ export default {
   },
 
   methods: {
-    saveCoffee() {
+    async saveCoffee() {
       console.log("Save!");
       if (this.name) {
-        this.slug = this.name.toLowerCase().replace(/\s/g , "-");
-
+        const slug = this.name.toLowerCase().replace(/\s/g , "-");
+        const data = {
+          name: this.name,
+          slug,
+          ingredients: this.ingredients,
+        }
+        const res = await db.doc("coffees").set(data);
+        console.log(res);
       } else {
         this.feedback = "You must enter a name.";
       }
