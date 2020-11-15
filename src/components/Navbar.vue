@@ -1,7 +1,7 @@
 <template>
   <div class="navbar">
     <nav>
-      <v-app-bar app color="primary">
+      <v-app-bar app color="secondary">
         <v-toolbar-title
           ><router-link to="/" class="lightest--text text-h3">Hey, Coffee!</router-link
         ></v-toolbar-title>

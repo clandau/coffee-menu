@@ -4,11 +4,11 @@
       <v-layout row wrap>
         <v-flex xs12 md6 lg4 v-for="(coffee, index) in coffees" :key="index" class="pa-5">
           <v-card>
-            <v-card-title class="background">
+            <v-card-title class="accent">
               {{ coffee.name }}
             </v-card-title>
             <v-card-text>
-              <v-chip class="ma-2" v-for="(ingredient, i) in coffee.ingredients" :key="i">{{ingredient}}</v-chip>
+              <v-chip color="primary" class="ma-2 lightest--text" v-for="(ingredient, i) in coffee.ingredients" :key="i">{{ingredient}}</v-chip>
             </v-card-text>
           </v-card>
         </v-flex>
