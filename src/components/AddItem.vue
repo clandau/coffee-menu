@@ -5,7 +5,7 @@
         <v-card-title>Add Coffee Drink</v-card-title>
         <v-card-text>
           <v-form>
-            <v-text-field v-model="name" label="Name" required :error-messages="[]"></v-text-field>
+            <v-text-field v-model="name" label="Name" required></v-text-field>
             <v-text-field
               v-for="(ing, index) in ingredients"
               :key="index"
@@ -21,7 +21,7 @@
             ></v-text-field>
           </v-form>
         </v-card-text>
-        <div class="px-3">
+        <div class="px-3" v-if="feedback">
           <v-alert type="error" dismissible>{{ feedback }}</v-alert></div>
         <v-card-actions>
           <v-btn color="accent" @click="saveCoffee">Save Coffee</v-btn>
