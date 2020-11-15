@@ -22,7 +22,8 @@
           </v-form>
         </v-card-text>
         <div class="px-3" v-if="feedback">
-          <v-alert type="error" dismissible>{{ feedback }}</v-alert></div>
+          <v-alert type="error" dismissible>{{ feedback }}</v-alert>
+        </div>
         <v-card-actions>
           <v-btn color="accent" @click="saveCoffee">Save Coffee</v-btn>
         </v-card-actions>
@@ -32,7 +33,7 @@
 </template>
 
 <script>
-// import { db } from "@/firebase/init";
+import { db } from "@/firebase/init";
 
 export default {
   name: "AddItem",
@@ -49,18 +50,17 @@ export default {
     async saveCoffee() {
       console.log("Save!");
       if (this.name) {
-        const slug = this.name.toLowerCase().replace(/\s/g , "-");
+        const slug = this.name.toLowerCase().replace(/\s/g, "-");
         const data = {
           name: this.name,
           slug,
           ingredients: this.ingredients,
-        }
-        const res = await db.doc("coffees").set(data);
-        console.log(res);
+        };
+        await db.collection("coffees").add(data);
+        this.$router.push({ name: "Index" });
       } else {
         this.feedback = "You must enter a name.";
       }
-
     },
     addIngredient() {
       if (this.addOneMore) {
