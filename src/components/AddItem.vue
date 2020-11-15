@@ -5,7 +5,7 @@
         <v-card-title>Add Coffee Drink</v-card-title>
         <v-card-text>
           <v-form>
-            <v-text-field v-model="name" label="Name" required></v-text-field>
+            <v-text-field v-model="name" label="Name" required :error-messages="[]"></v-text-field>
             <v-text-field
               v-for="(ing, index) in ingredients"
               :key="index"
@@ -21,6 +21,8 @@
             ></v-text-field>
           </v-form>
         </v-card-text>
+        <div class="px-3">
+          <v-alert type="error" dismissible>{{ feedback }}</v-alert></div>
         <v-card-actions>
           <v-btn color="accent" @click="saveCoffee">Save Coffee</v-btn>
         </v-card-actions>
@@ -30,11 +32,14 @@
 </template>
 
 <script>
+// import { db } from "@/firebase/init";
+
 export default {
   name: "AddItem",
   data() {
     return {
       name: "",
+      slug: null,
       ingredients: [],
       addOneMore: null,
       feedback: null,
@@ -43,7 +48,14 @@ export default {
 
   methods: {
     saveCoffee() {
-      console.log("Save!")
+      console.log("Save!");
+      if (this.name) {
+        this.slug = this.name.toLowerCase().replace(/\s/g , "-");
+
+      } else {
+        this.feedback = "You must enter a name.";
+      }
+
     },
     addIngredient() {
       if (this.addOneMore) {
@@ -51,13 +63,13 @@ export default {
         this.addOneMore = null;
         this.feedback = null;
       } else {
-        this.feedback = "You must enter a value to add an ingredient";
+        this.feedback = "You must enter a value to add an ingredient.";
       }
     },
 
     removeIngredient(i) {
-      console.log(i)
-    }
+      console.log(i);
+    },
   },
 };
 </script>
