@@ -3,7 +3,7 @@
     <nav>
       <v-app-bar app color="primary">
         <v-toolbar-title
-          ><router-link to="/" class="lightest--text">Hey, Coffee!</router-link
+          ><router-link to="/" class="lightest--text text-h3">Hey, Coffee!</router-link
         ></v-toolbar-title>
         <v-btn
           fab
@@ -33,5 +33,9 @@ export default {
 <style>
 .navbar nav {
   padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
 }
 </style>
