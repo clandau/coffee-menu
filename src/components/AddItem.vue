@@ -1,6 +1,9 @@
 <template>
   <div>
+    <v-container>
+
 <h1>Add Coffee Drink</h1>
+    </v-container>
   </div>
 </template>
 

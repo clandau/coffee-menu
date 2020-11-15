@@ -2,9 +2,11 @@
   <div class="navbar">
     <nav>
       <v-app-bar app color="primary">
-        <v-toolbar-title class="lightest--text">Hey, Coffee!</v-toolbar-title>
+        <v-toolbar-title
+          ><router-link to="/" class="lightest--text">Hey, Coffee!</router-link
+        ></v-toolbar-title>
         <v-btn
-        fab
+          fab
           medium
           color="accent"
           absolute
